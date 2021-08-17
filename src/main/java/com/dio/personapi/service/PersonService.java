@@ -1,5 +1,6 @@
 package com.dio.personapi.service;
 
+import com.dio.personapi.dto.request.PersonDTO;
 import com.dio.personapi.dto.response.MessageResponseDTO;
 import com.dio.personapi.entity.Person;
 import com.dio.personapi.repository.PersonRepository;
@@ -17,9 +18,14 @@ public class PersonService {
         this.personRepository = personRepository;
     }
 
-    @PostMapping
-    public MessageResponseDTO createPerson(Person person) {
-        Person savedPerson = personRepository.save(person);
+    public MessageResponseDTO createPerson(PersonDTO personDTO) {
+        Person personToSave = Person.builder()
+                .firstName(personDTO.getFirstName())
+                .lastName(personDTO.getLastName())
+                .birthDate(personDTO.getBirthDate())
+                .build();
+
+        Person savedPerson = personRepository.save(personDTO);
         return MessageResponseDTO
                 .builder()
                 .message("Created person with ID " + savedPerson.getId())
