@@ -1,6 +1,7 @@
 package com.dio.personapi.dto.request;
 
 import com.dio.personapi.entity.Phone;
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,7 +21,7 @@ import java.util.List;
 @NoArgsConstructor
 public class PersonDTO {
 
-    private int id;
+    private Long id;
 
     @NotEmpty
     @Size(min = 2, max = 100)
@@ -34,10 +35,11 @@ public class PersonDTO {
     @CPF
     private String cpf;
 
+    @NotNull
     private LocalDate birthDate;
 
     @Valid // informa que a validação será feita através das anotações nos atributos da classe referente ao DTO
     @NotEmpty
-    private List<Phone> phones;
+    private List<PhoneDTO> phones;
 
 }
