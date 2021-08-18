@@ -36,7 +36,7 @@ public class PersonDTO {
     private String cpf;
 
     @NotNull
-    private LocalDate birthDate;
+    private String birthDate;
 
     @Valid // informa que a validação será feita através das anotações nos atributos da classe referente ao DTO
     @NotEmpty
