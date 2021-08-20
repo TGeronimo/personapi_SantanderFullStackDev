@@ -3,6 +3,7 @@
 Heroku project name: **_ourpeopleapi-live_**
 ___
 ## Database ERM
+*plugin mermaid - não funciona no GitHub :(
 ```mermaid
 erDiagram
      Person ||--o{ Phone : has
@@ -52,4 +53,3 @@ A interface JpaRepository contém todos os métodos e contratos de um CRUD.
 **@RequestBody** informa que o método receberá uma requisição do tipo Person
 em JSON.
 
-Continuar da parte 11 (commit para a branch update_feature já feito)
